@@ -7,7 +7,7 @@ pub struct IndexKey {
 }
 
 impl IndexKey {
-    pub(crate) const MAX_INDEX_SIZE: usize = 1024;
+    pub(crate) const MAX_INDEX_SIZE: usize = 16 * 1024; // 16KB
 
     pub fn min() -> Self {
         IndexKey {
