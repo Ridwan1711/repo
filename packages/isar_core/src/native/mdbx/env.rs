@@ -37,9 +37,10 @@ impl Env {
                     mdbx_sys::MDBX_option::MDBX_opt_max_db,
                     max_dbs as u64,
                 ))?;
+                // Set page size to 16KB (16384 bytes) for Google Play compliance
                 mdbx_result(mdbx_sys::mdbx_env_set_geometry(
                     env,
-                    MIB,
+                    16 * 1024, // 16KB page size
                     0,
                     max_size_i,
                     5 * MIB,
